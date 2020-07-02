@@ -12,7 +12,7 @@
     <img src= '{% static "consultadd.jpg" %}'>
 </div>
 <div class="jumbotron">
-  <form action="{% url 'submit'%}" style=" width:500px;
+  <form action="{% url 'submit'%}" onsubmit="ValidateEmail()" style=" width:500px;
   height: 100px;
   padding: 50px;box-sizing: border-box; margin-left: 450px; padding-top: 0%">
 
@@ -35,11 +35,12 @@
 
 
     <div class="clearfix">
-      <button type="Submit" class="submit" style="width:40%; padding-left: 5%; text-align: center">Sign Up</button>
+        <button type="Submit" class="submit" style="width:40%; padding-left: 5%; text-align: center" onclick="ValidateEmail(document.form1.email)">Sign Up</button><br><br><br><br>
+
     </div>
 
   </form>
 </div>
-
+ <script src='{% static "email.js" %}'></script>
 </body>
 </html>
