@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import UsersAPI
 from rest_framework.validators import UniqueValidator
+from django.core.exceptions import ValidationError
 
 
 class UserApiSerializer(serializers.Serializer):

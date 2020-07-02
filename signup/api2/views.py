@@ -1,16 +1,12 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import HttpResponse
+
 
 # Create your views here.
 
 from .models import UsersAPI
 from .serializers import UserApiSerializer
 from django.shortcuts import get_object_or_404
-
-
-def home(request):
-    return HttpResponse('Hello welcome to my minor project! And to check it out, Try- /display, /admin, /api2/login')
 
 
 class UserApiView(APIView):
@@ -29,16 +25,25 @@ class UserApiView(APIView):
 
         return Response(UsersAPI.objects.all())
 
-    # def vemail(self, request):
+
+    # def validateEmail(query, request):
+    #
     #     queryset = UsersAPI.objects.filter(email=request.data.get('email'))
+    #     try:
+    #         validate_email('email')
+    #         return True
+    #     except ValidationError, queryset:
+    #         return ("Try again")
     #     if queryset:
-    #         emailset = queryset(email__icontains='email')
+    #         emailset = queryset('email')
     #         emailres = UsersAPI.objects.filter(emailset)
     #         if emailres:
     #             msg = 'The email address is already taken'
     #             raise serializer.ValidationError(msg)
     #         else:
-    #             return queryset
+    #             return ("valid")
+
+
 
     def post(self, request):
         queryset = request.data
@@ -46,7 +51,7 @@ class UserApiView(APIView):
         if serializer.is_valid(raise_exception=True):
             save_data = serializer.save()
 
-        return Response(format(save_data.name))
+        return Response("Congratulations your account has been created".format(save_data.name))
 
     def put(self, request, pk):
         queryset = get_object_or_404(UsersAPI.objects.all(), pk=pk)
