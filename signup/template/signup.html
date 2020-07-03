@@ -1,24 +1,25 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title> Sign Up</title>
     <link rel= "stylesheet" href='{%static "signup.css"%}'/>
+  <script src="https://kit.fontawesome.com/79fbcfceff.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body style="background-color:#D3D3D3;">
 
-<div class="topnav" style="width: 100%">
+<div class="topnav" style="width: 100%;  height:auto;">
     <img src= '{% static "consultadd.jpg" %}'>
 </div>
-<div class="jumbotron">
+<div class="container">
   <form action="{% url 'submit'%}"  style=" width:500px;
   height: 100px;
-  padding: 50px;box-sizing: border-box; margin-left: 450px; top:100%">
+  padding: 50px;box-sizing: border-box; margin-left: 450px; top:0%">
 
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
-    <hr>
 
     <label for="Username"><b>Username</b></label>
     <input type="text" name="Username" placeholder="Username" required/>
@@ -35,13 +36,60 @@
 
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
+    </label><br>
+    <style>
+      input[type = "Submit"]{
+    width: 120px;
+    height: 32px;
+    background-color: green;
+    color: white;
+    border:none;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 2000px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.facebook_btn{
 
+  width: 50px;
+    height: 32px;
 
-    <div class="clearfix">
-        <button type="Submit" class="submit" style="width:40%; padding-left: 5%; text-align: center">Sign Up</button><br><br>
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 2000px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px #333333;
+    cursor:pointer;
+    color: white;
+     background-color: blue;
+    border-color: blue;
+    border-style: round;
+    border-width: 3px;
+    margin-left: 5px
+}
+.google_btn{
+    width: 50px;
+    height: 32px;
 
-    </div>
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 2000px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px #333333;
+    cursor:pointer;
+    color: white;
+    border-color: rgb(236, 45, 45);
+    border-style: round;
+    border-width: 3px;
+    background-color:rgb(236, 45, 45);
+
+    </style>
+
+        <input type="Submit" name="submit" value="Sign-Up"/>    Or Sign-up with
+      <button onclick="window.location.href='https://www.facebook.com/';" class="facebook_btn"><i class="fa fa-facebook fa-fw"></i></button>
+      <button onclick="window.location.href='https://www.gmail.com';"class="google_btn"><i class="fa fa-google" aria-hidden="true"></i></button>
+
 
   </form>
 </div>
